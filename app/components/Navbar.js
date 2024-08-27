@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-// import Image from "next/image";
-// import { Logo } from "@/public/images";
+import Image from "next/image";
+import { Logo } from "@/public/images";
 import { useSession, signOut, signIn } from "next-auth/react";
 
 const Navbar = () => {
@@ -14,8 +14,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center">
-            {/* <Image src={Logo} alt="logo" width={60} height={40} priority /> */}
-            <span className="ml-3 text-xl font-semibold">Iwe LMS</span>{" "}
+            <Image src={Logo} alt="logo" width={60} height={40} priority />
+            <span className="ml-3 text-xl font-semibold">Iwe</span>{" "}
           </Link>
 
           <div className="hidden md:flex space-x-8 ml-auto">
@@ -105,7 +105,8 @@ const Navbar = () => {
           <div className="absolute inset-x-0 top-0 p-4 bg-white shadow-lg">
             <div className="flex items-center justify-between mb-6">
               <Link href="/">
-                {/* <Image src={Logo} alt="logo" width={80} height={40} priority /> */}
+                <Image src={Logo} alt="logo" width={60} height={40} priority />
+                <span className="ml-3 text-xl font-semibold">Iwe</span>{" "}
               </Link>
               <button
                 onClick={() => setIsOpen(false)}
