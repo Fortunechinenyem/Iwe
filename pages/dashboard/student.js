@@ -1,4 +1,5 @@
 import { getSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function StudentDashboard({ user, courses }) {
   return (
@@ -7,17 +8,17 @@ export default function StudentDashboard({ user, courses }) {
         <nav>
           <ul>
             <li>
-              <a
+              <Link
                 href="/dashboard/student"
                 className="block py-2 hover:bg-gray-700"
               >
                 My Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/quizzes" className="block py-2 hover:bg-gray-700">
+              <Link href="/quizzes" className="block py-2 hover:bg-gray-700">
                 My Quizzes
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
