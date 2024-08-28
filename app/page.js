@@ -4,14 +4,13 @@ import Layout from "./components/Layout";
 export default function Home() {
   return (
     <Layout>
-      {/* Hero Section */}
       <div className="text-center py-16 bg-gradient-to-r from-blue-500 to-teal-400 text-white">
-        <h1 className="text-5xl font-bold mb-6">Welcome to Iwe</h1>
-        <p className="text-xl mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Iwe</h1>
+        <p className="text-lg md:text-xl mb-6">
           Embark on your learning journey with expert-led courses, interactive
           quizzes, and a vibrant community.
         </p>
-        <div className="space-x-4">
+        <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
           <Link
             href="/courses"
             className="bg-white text-blue-600 py-3 px-8 rounded-lg hover:bg-gray-100"
@@ -27,7 +26,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Courses Section */}
       <section className="py-16">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-semibold mb-8 text-gray-800">
@@ -37,7 +35,6 @@ export default function Home() {
             Gain new skills in web development, data science, AI, and more.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Replace these with dynamic course components */}
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h3 className="text-2xl font-bold text-gray-800">
                 Web Development
@@ -82,7 +79,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-semibold mb-8 text-gray-800">
@@ -101,7 +97,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Achievements Section */}
       <section className="py-16">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-semibold mb-8 text-gray-800">
