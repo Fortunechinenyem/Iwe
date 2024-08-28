@@ -1,4 +1,3 @@
-// pages/auth/signup.js
 import { useState } from "react";
 import bcrypt from "bcryptjs";
 
