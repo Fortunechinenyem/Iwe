@@ -1,26 +1,22 @@
-// pages/auth/signup.js
+import { signIn } from "next-auth/react";
 import { useState } from "react";
-import bcrypt from "bcryptjs";
 
-export default function SignUp() {
+export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const res = await fetch("/api/auth/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password: hashedPassword }),
+    const result = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
     });
 
-    const data = await res.json();
-    if (data.success) {
-      window.location.href = "/auth/signin"; // Redirect to sign-in page
+    if (result.error) {
+      console.log(result.error);
+    } else {
+      window.location.href = "/dashboard";
     }
   };
 
@@ -30,7 +26,7 @@ export default function SignUp() {
         className="bg-white p-8 rounded-lg shadow-md"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
         <input
           className="border w-full p-2 mb-4 rounded"
           type="email"
@@ -48,7 +44,7 @@ export default function SignUp() {
           required
         />
         <button className="w-full bg-blue-500 text-white py-2 rounded">
-          Sign Up
+          Sign In
         </button>
       </form>
     </div>

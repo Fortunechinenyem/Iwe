@@ -1,18 +1,22 @@
+import Layout from "@/app/components/Layout";
 import { getSession } from "next-auth/react";
 
 export default function TeacherDashboard({ user, courses }) {
   return (
-    <div>
-      <h1>{user.name}'s Dashboard</h1>
-      <h2>Your Courses</h2>
-      <ul>
-        {courses.map((course) => (
-          <li key={course.id}>{course.title}</li>
-        ))}
-      </ul>
-      <h2>Create a new Course</h2>
-      <button>Create Course</button>
-    </div>
+    <Layout>
+      {" "}
+      <div>
+        <h1>{user.name}'s Dashboard</h1>
+        <h2>Your Courses</h2>
+        <ul>
+          {courses.map((course) => (
+            <li key={course.id}>{course.title}</li>
+          ))}
+        </ul>
+        <h2>Create a new Course</h2>
+        <button>Create Course</button>
+      </div>
+    </Layout>
   );
 }
 

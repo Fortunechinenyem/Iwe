@@ -1,17 +1,21 @@
+import Layout from "@/app/components/Layout";
 import Link from "next/link";
 
 export default function Quizzes({ quizzes }) {
   return (
-    <div>
-      <h1>Available Quizzes</h1>
-      <ul>
-        {quizzes.map((quiz) => (
-          <li key={quiz.id}>
-            <Link href={`/quizzes/${quiz.id}`}>{quiz.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Layout>
+      {" "}
+      <div>
+        <h1>Available Quizzes</h1>
+        <ul>
+          {quizzes.map((quiz) => (
+            <li key={quiz.id}>
+              <Link href={`/quizzes/${quiz.id}`}>{quiz.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Layout>
   );
 }
 export async function getServerSideProps() {

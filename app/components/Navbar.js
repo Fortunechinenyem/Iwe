@@ -38,7 +38,7 @@ const Navbar = () => {
               Progress
             </Link>
             <Link
-              href="/discussions"
+              href="/discussion"
               className="text-gray-800 hover:text-blue-500"
             >
               Discussions
@@ -154,7 +154,7 @@ const Navbar = () => {
                 Progress
               </Link>
               <Link
-                href="/discussions"
+                href="/discussion"
                 className="block text-gray-800 hover:bg-gray-100 p-3 rounded-md"
               >
                 Discussions
