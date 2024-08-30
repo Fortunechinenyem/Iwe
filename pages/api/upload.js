@@ -8,7 +8,7 @@ cloudinary.config({
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { file } = req.body; // Assume file data is sent via formData
+    const { file } = req.body;
     try {
       const uploadedFile = await cloudinary.uploader.upload(file);
       res.status(200).json({ url: uploadedFile.secure_url });

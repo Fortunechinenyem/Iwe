@@ -14,8 +14,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center">
-            <Image src={Logo} alt="logo" width={60} height={40} priority />
-            <span className="ml-3 text-xl font-semibold">Iwe</span>{" "}
+            <Image src={Logo} alt="logo" width={40} height={40} priority />
+            <span className="ml-3 text-xl font-semibold">Iwe</span>
           </Link>
 
           <div className="hidden md:flex space-x-8 ml-auto">
@@ -59,12 +59,20 @@ const Navbar = () => {
                 </button>
               </>
             ) : (
-              <button
-                onClick={() => signIn()}
-                className="text-gray-800 hover:text-blue-500"
-              >
-                Sign In
-              </button>
+              <>
+                <button
+                  onClick={() => signIn()}
+                  className="text-gray-800 hover:text-blue-500"
+                >
+                  Sign In
+                </button>
+                <Link
+                  href="/auth/signup"
+                  className="text-gray-800 hover:text-blue-500"
+                >
+                  Sign Up
+                </Link>
+              </>
             )}
           </div>
 
@@ -106,7 +114,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between mb-6">
               <Link href="/">
                 <Image src={Logo} alt="logo" width={60} height={40} priority />
-                <span className="ml-3 text-xl font-semibold">Iwe</span>{" "}
+                <span className="ml-3 text-xl font-semibold">Iwe</span>
               </Link>
               <button
                 onClick={() => setIsOpen(false)}
@@ -175,12 +183,20 @@ const Navbar = () => {
                   </button>
                 </>
               ) : (
-                <button
-                  onClick={() => signIn()}
-                  className="block w-full text-left text-gray-800 hover:bg-gray-100 p-3 rounded-md"
-                >
-                  Sign In
-                </button>
+                <>
+                  <button
+                    onClick={() => signIn()}
+                    className="block w-full text-left text-gray-800 hover:bg-gray-100 p-3 rounded-md"
+                  >
+                    Sign In
+                  </button>
+                  <Link
+                    href="/auth/signup"
+                    className="block w-full text-left text-gray-800 hover:bg-gray-100 p-3 rounded-md"
+                  >
+                    Sign Up
+                  </Link>
+                </>
               )}
             </nav>
           </div>

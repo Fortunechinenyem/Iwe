@@ -1,6 +1,6 @@
-import connectDb from "../../../utils/connectDb";
-import Course from "../../../models/Course";
-import authMiddleware from "../../../utils/authMiddleware";
+import Course from "@/models/Course";
+import authMiddleware from "@/utils/authMiddleware";
+import connectDb from "@/utils/connectDb";
 
 export default async function handler(req, res) {
   await connectDb();

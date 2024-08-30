@@ -16,8 +16,11 @@ export default function QuizDetail({ quiz }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const quiz = await fetch(`http://your-api-url/api/quizzes/${params.id}`).then(
-    (res) => res.json()
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+  const quiz = await fetch(`${baseUrl}/api/quizzes/${params.id}`).then((res) =>
+    res.json()
   );
+
   return { props: { quiz } };
 }

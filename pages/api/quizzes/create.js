@@ -1,6 +1,6 @@
-import connectDb from "../../../utils/connectDb";
-import Quiz from "../../../models/Quiz";
-import authMiddleware from "../../../utils/authMiddleware";
+import authMiddleware from "@/middleware/authmiddleware";
+import Quiz from "@/models/Quiz";
+import connectDb from "@/utils/connectDb";
 
 export default async function handler(req, res) {
   await connectDb();

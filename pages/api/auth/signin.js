@@ -1,52 +1,25 @@
-import { signIn } from "next-auth/react";
-import { useState } from "react";
+import User from "@/models/User";
+import connectDb from "@/utils/connectDb";
+import bcrypt from "bcryptjs";
 
-export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    const { email, password } = req.body;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    await connectDb();
 
-    if (result.error) {
-      console.log(result.error);
-    } else {
-      window.location.href = "/dashboard";
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: "User not found" });
     }
-  };
 
-  return (
-    <div className="flex items-center justify-center h-screen">
-      <form
-        className="bg-white p-8 rounded-lg shadow-md"
-        onSubmit={handleSubmit}
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
-        <input
-          className="border w-full p-2 mb-4 rounded"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          className="border w-full p-2 mb-6 rounded"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button className="w-full bg-blue-500 text-white py-2 rounded">
-          Sign In
-        </button>
-      </form>
-    </div>
-  );
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    return res.status(200).json({ message: "Login successful" });
+  } else {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
 }

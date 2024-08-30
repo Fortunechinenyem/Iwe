@@ -17,8 +17,11 @@ export default function CourseDetail({ course }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const course = await fetch(
-    `http://your-api-url/api/courses/${params.id}`
-  ).then((res) => res.json());
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+  const course = await fetch(`${baseUrl}/api/courses/${params.id}`).then(
+    (res) => res.json()
+  );
+
   return { props: { course } };
 }

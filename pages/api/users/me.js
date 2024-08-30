@@ -1,6 +1,6 @@
-import connectDb from "../../../utils/connectDb";
+import User from "@/models/User";
+import connectDb from "@/utils/connectDb";
 import { getSession } from "next-auth/react";
-import User from "../../../models/User";
 
 export default async function handler(req, res) {
   await connectDb();
