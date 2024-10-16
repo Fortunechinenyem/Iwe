@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 export default function Home() {
   return (
     <Layout>
-      <div className="text-center py-16 bg-gradient-to-r from-blue-500 to-teal-400 text-white">
+      <div className="text-center py-16 bg-gradient-to-r from-blue-500 to-teal-600 text-white">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Iwe</h1>
         <p className="text-lg md:text-xl mb-6">
           Embark on your learning journey with expert-led courses, interactive
@@ -49,6 +49,7 @@ export default function Home() {
                 Learn More
               </Link>
             </div>
+
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h3 className="text-2xl font-bold text-gray-800">Data Science</h3>
               <p className="text-gray-600 mt-4">
